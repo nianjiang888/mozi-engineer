@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "package": "mozi-engineer",
+    "name_zh": "墨子·工程指挥官",
+    "version": "1.0.0",
+    "persona": "墨子",
+    "persona_pair": "公输班（工匠执行→自动联动 鲁班-automation 即可跑脚本）",
+    "philosophy": "兼爱非攻 → 兼爱代码：写给下一个人看、写给三个月后的自己读、写给维护者不背锅。非攻：不引入破坏性变更、不绕开测试、不留技术债。",
+    "comparator": "对位 dev-expert：同样 mega 规模，主打「先引擎路由 → 精准 Top-3 加载 → LLM 级红线 → 工程哲学人格锚点」四件 dev-expert 没有的事。",
+    "entry": "先跑 scripts/mega_engine.py 「{user request}」 → 引擎输出场景诊断 + Top-3 references + 是否触发 guard，再由模型按指令加载并答。",
+    "soft_link": "用户提到「合并 Excel/抓网页/批量改名/写脚本」等可执行需求，描述里说'自动联动 鲁班-automation 的可跑脚本'：该 SkillHub 内置的鲁班·办公自动化可直接给真实 Python 代码，本包不重复实现。"
+  },
+  "red_flags_llm": [
+    "绕过登录",
+    "绕过网站登录",
+    "绕过认证",
+    "绕过鉴权",
+    "绕过验证",
+    "绕过反爬",
+    "绕过权限",
+    "破解密码",
+    "撞库",
+    "撞库攻击",
+    "抓取所有用户隐私",
+    "批量爬用户",
+    "批量抓用户",
+    "爬个人手机号",
+    "注入漏洞利用",
+    "教sql注入",
+    "sql注入攻击",
+    "xss攻击",
+    "上传后门",
+    "写木马",
+    "写病毒",
+    "勒索代码",
+    "挖矿脚本",
+    "怎么偷api key",
+    "怎么偷api",
+    "绕过付费墙",
+    "盗版破解",
+    "洗稿别人代码",
+    "伪造身份",
+    "绕过face id",
+    "绕过2fa",
+    "绕过人脸"
+  ],
+  "scenes": [
+    {
+      "id": "bug",
+      "name": "Bug 诊断",
+      "ref": ["03_debug/Bug诊断.md", "03_debug/根因调试硬闭环.md"],
+      "priority": 1,
+      "keywords_tech": ["bug", "报错", "错误", "异常", "stack trace", "stacktrace", "无法复现", "偶发", "race condition", "memory leak", "崩溃", "NullPointer", "NPE", "segfault", "core dump", "panic", "traceback"],
+      "keywords_spoken": ["代码出问题了", "报这个错", "为什么崩", "为什么没生效", "线上报警", "线上故障", "数据不对", "崩了", "卡死", "接口挂了", "程序挂了", "为什么没生效", "不管用", "线上炸了", "线上挂了"],
+      "keywords_en": ["debug", "exception", "intermittent bug", "race", "crash", "stuck"]
+    },
+    {
+      "id": "rootcause",
+      "name": "根因调试",
+      "ref": ["03_debug/根因调试硬闭环.md", "03_debug/Bug诊断.md"],
+      "priority": 2,
+      "keywords_tech": ["根因", "5 why", "fishbone", "根因分析", "rca", "为什么发生", "不治本", "治标不治本"],
+      "keywords_spoken": ["为什么会发生", "是不是表面上", "继续挖原因", "治标不治本", "怎么找到根因", "为什么会这样", "不是表面", "根本原因"],
+      "keywords_en": ["root cause analysis", "five whys", "rca", "postmortem"]
+    },
+    {
+      "id": "review",
+      "name": "代码审查",
+      "ref": ["02_stack/代码审查.md", "03_debug/重构与代码味道.md"],
+      "priority": 1,
+      "keywords_tech": ["code review", "cr", "审查清单", "review check", "代码走查", "pr review", "review"],
+      "keywords_spoken": ["帮我看看这段有没有问题", "这段代码能过审吗", "哪里写得不好", "代码评审", "review 一下", "帮我看下这段代码", "这段能过 review 吗", "帮我 review"],
+      "keywords_en": ["code review", "pr review", "review checklist"]
+    },
+    {
+      "id": "test",
+      "name": "测试用例",
+      "ref": ["02_stack/测试用例.md"],
+      "priority": 1,
+      "keywords_tech": ["单元测试", "集成测试", "e2e", "test case", "覆盖率", "coverage", "mock", "tdd", "bdd", "压测", "用例"],
+      "keywords_spoken": ["怎么测", "测试用例怎么写", "覆盖率怎么上来", "tdd 怎么入手", "我要写测试", "测试不够", "加测试"],
+      "keywords_en": ["unit test", "test coverage", "tdd", "load test"]
+    },
+    {
+      "id": "select",
+      "name": "技术选型",
+      "ref": ["02_stack/技术选型.md", "01_total/工程总纲.md"],
+      "priority": 2,
+      "keywords_tech": ["选型", "选框架", "对比", "trade-off", "取舍", "orm", "前端框架", "react", "vue", "next", "nuxt", "数据库选型", "消息队列"],
+      "keywords_spoken": ["用 A 还是 B", "选哪个框架好", "对比一下", "该用 orm 吗", "前端用 react 还是 vue", "用啥数据库", "用啥队列"],
+      "keywords_en": ["tech selection", "framework comparison", "tradeoff analysis"]
+    },
+    {
+      "id": "spec",
+      "name": "规格与需求澄清",
+      "ref": ["01_total/Spec驱动开发.md", "01_total/工程总纲.md"],
+      "priority": 1,
+      "keywords_tech": ["spec", "sdd", "需求澄清", "接口约定", "验收条件", "acceptance criteria", "user story", "use case"],
+      "keywords_spoken": ["先别写代码", "帮我捋一下", "需求是这样", "我要做一个", "做一个 xx 怎么搞", "验收标准", "先把要做什么讲清楚", "做什么功能"],
+      "keywords_en": ["spec driven", "acceptance criteria", "requirement clarification", "scope freeze"]
+    },
+    {
+      "id": "decompose",
+      "name": "任务拆解与执行",
+      "ref": ["01_total/任务拆解与执行.md", "01_total/工程总纲.md"],
+      "priority": 1,
+      "keywords_tech": ["任务拆解", "wbs", "里程碑", "工作分解", "story point", "依赖识别", "排期"],
+      "keywords_spoken": ["这活儿太大分几步", "怎么拆开做", "先做什么后做什么", "依赖关系", "我一个人怎么排期", "列个里程碑", "拆任务"],
+      "keywords_en": ["task decomposition", "work breakdown", "milestone planning"]
+    },
+    {
+      "id": "codegen",
+      "name": "代码生成",
+      "ref": ["02_stack/代码生成.md", "02_stack/技术选型.md"],
+      "priority": 1,
+      "keywords_tech": ["代码生成", "脚手架", "scaffold", "样板代码", "模板代码", "boilerplate", "起个项目"],
+      "keywords_spoken": ["帮我写个", "给我段代码", "搭个架子", "起个项目", "一个函数帮我写一下", "写个工具类", "写个函数"],
+      "keywords_en": ["generate code", "scaffold project", "boilerplate"]
+    },
+    {
+      "id": "refactor",
+      "name": "重构与代码味道",
+      "ref": ["03_debug/重构与代码味道.md", "02_stack/代码审查.md"],
+      "priority": 2,
+      "keywords_tech": ["重构", "refactor", "代码味道", "code smell", "god class", "long method", "feature envy", "primitive obsession"],
+      "keywords_spoken": ["代码太乱", "能重构吗", "命名太长", "函数太长", "重复代码", "整理一下", "代码可读性"],
+      "keywords_en": ["refactor", "code smell", "clean code"]
+    },
+    {
+      "id": "ai-governance",
+      "name": "AI 编码治理",
+      "ref": ["04_safety/AI编码治理.md", "04_safety/LLM应用安全.md"],
+      "priority": 2,
+      "keywords_tech": ["ai 编程治理", "ai governance", "cursor 规则", "copilot 规则", "agent 审批", "ai 生成代码审查", "vibe coding"],
+      "keywords_spoken": ["ai 写的代码怎么管", "谁审查 ai 的代码", "agent 出错谁背锅", "ai 合规", "用 cursor 怎么管"],
+      "keywords_en": ["ai coding governance", "agent guardrails", "ai policy"]
+    },
+    {
+      "id": "threat",
+      "name": "威胁建模",
+      "ref": ["04_safety/威胁建模.md", "04_safety/供应链安全.md"],
+      "priority": 2,
+      "keywords_tech": ["threat model", "stride", "攻击面", "trust boundary", "威胁建模", "漏洞", "风险评估", "安全扫描"],
+      "keywords_spoken": ["哪里最容易被攻", "攻击面", "动手前评估风险", "威胁建模怎么走", "做个风险评估", "项目要不要做安全", "上线前安全评估"],
+      "keywords_en": ["threat modeling", "stride", "attack surface", "security scan"]
+    },
+    {
+      "id": "llm-security",
+      "name": "LLM 应用安全",
+      "ref": ["04_safety/LLM应用安全.md"],
+      "priority": 2,
+      "keywords_tech": ["prompt 注入", "prompt injection", "jailbreak", "system prompt 泄漏", "rag 投毒", "tool 滥用", "mcp 安全", "agent 越权"],
+      "keywords_spoken": ["llm 被忽悠", "prompt 注入", "agent 越权", "工具被滥用", "被 jailbreak", "rag 被投毒"],
+      "keywords_en": ["prompt injection", "jailbreak", "tool abuse", "mcp security"]
+    },
+    {
+      "id": "supply-chain",
+      "name": "供应链与依赖安全",
+      "ref": ["04_safety/供应链安全.md", "02_stack/技术选型.md"],
+      "priority": 2,
+      "keywords_tech": ["supply chain", "sca", "依赖扫描", "dependency confusion", "typosquatting", "sbom", "license", "gpl", "agpl", "许可证", "gpl 传染"],
+      "keywords_spoken": ["引入的包安全", "license 干净吗", "依赖锁不锁版本", "引入的包合规", "license 是啥"],
+      "keywords_en": ["supply chain security", "sca", "sbom", "dependency confusion"]
+    },
+    {
+      "id": "production",
+      "name": "生产就绪",
+      "ref": ["05_production/生产就绪.md"],
+      "priority": 2,
+      "keywords_tech": ["生产部署", "production ready", "canary", "灰度", "feature flag", "可观测", "observability", "metrics", "log", "trace", "slo", "sli"],
+      "keywords_spoken": ["怎么上线不出事", "上线清单", "发布前检查", "渐进式发布", "灰度怎么上", "上线前要做什么"],
+      "keywords_en": ["production readiness", "canary deploy", "observability"]
+    },
+    {
+      "id": "incident",
+      "name": "事故复盘",
+      "ref": ["05_production/事故复盘.md", "03_debug/根因调试硬闭环.md"],
+      "priority": 2,
+      "keywords_tech": ["incident", "postmortem", "事故复盘", "sev1", "slo breach", "runbook", "oncall"],
+      "keywords_spoken": ["线上挂了", "事故复盘怎么写", "不要再发生", "今天出了个事故", "开个复盘会"],
+      "keywords_en": ["incident review", "postmortem", "runbook"]
+    },
+    {
+      "id": "performance",
+      "name": "性能基准",
+      "ref": ["02_stack/测试用例.md", "05_production/生产就绪.md"],
+      "priority": 2,
+      "keywords_tech": ["benchmark", "性能基准", "p99", "latency", "throughput", "qps", "tps", "压测", "load test"],
+      "keywords_spoken": ["接口慢", "怎么压", "性能基线", "调到多少算好", "p99 太长", "延迟高"],
+      "keywords_en": ["benchmark", "load test", "latency", "throughput"]
+    }
+  ],
+  "guard_modules": [
+    {
+      "id": "guard_secret",
+      "name": "Secret 脱敏",
+      "trigger": "用户 prompt 中疑似出现 AWS/阿里云 AK、API Token、数据库连接串、GitHub PAT、私钥",
+      "ref": "scripts/guard_secret.py"
+    },
+    {
+      "id": "guard_injection",
+      "name": "注入/越权提示词",
+      "trigger": "用户 prompt 试图绕过模型准则（如 '忽略以上规则'、'假装没有红线'）+ LLM 级越权请求（套 system prompt、问 prompt 模板）",
+      "ref": "scripts/guard_injection.py"
+    },
+    {
+      "id": "guard_license",
+      "name": "License/合规扫描",
+      "trigger": "用户问'直接复制 MIT/BSD 项目改个名'或'把 GPL 的代码塞进闭源'或'拿商业素材训练'",
+      "ref": "scripts/guard_license.py"
+    }
+  ],
+  "tone": {
+    "voice": "务实、清爽、说人话；不端工程师架子；不滥用术语；所有判断要带一句话前提条件。",
+    "taboo": ["一定成功", "完美方案", "终极架构", "永远最佳实践", "必须用X"],
+    "phrasing": "宁短勿长、宁追问勿假设、不替用户拍板"
+  }
+}
